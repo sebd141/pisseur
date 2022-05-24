@@ -1,5 +1,6 @@
 class ToiletsController < ApplicationController
   before_action :find_toilet, only: %i[edit show update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @toilets = Toilet.all

@@ -19,3 +19,26 @@
 # end
 
 Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
+
+
+require 'faker'
+
+user = User.create({email: "archi_legrand@example.com", encrypted_password: "lewagon"})
+
+puts "Cleaning database..."
+Toilet.destroy_all
+
+
+puts "Creating Toilets.."
+25.times do
+  toilet = Toilet.create!(
+    name: Faker::Name.middle_name,
+    location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2),
+    category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
+    user: user
+  )
+  toilet.save!
+end
+puts "Finished!"
