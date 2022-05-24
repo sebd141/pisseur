@@ -17,3 +17,5 @@
 #   )
 #   toilets << i
 # end
+
+Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
