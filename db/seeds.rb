@@ -8,6 +8,7 @@
 # require "faker"
 
 
+<<<<<<< HEAD
 puts 'Creating 5 toilets...'
 toilets = []
 5.times do |i|
@@ -25,3 +26,16 @@ end
 # validates :location, presence: true
 # validates :name, presence: true
 # validates :description, presence: true
+=======
+# puts 'Creating 5 toilets...'
+# toilets =[]
+# 5.times do |i|
+#   i = Toilet.create!(
+#     name: Faker::Company.name,
+#     type: 1
+#   )
+#   toilets << i
+# end
+
+Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
+>>>>>>> master
