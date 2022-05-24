@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# require "faker"
+
+
+# puts 'Creating 5 toilets...'
+# toilets =[]
+# 5.times do |i|
+#   i = Toilet.create!(
+#     name: Faker::Company.name,
+#     type: 1
+#   )
+#   toilets << i
+# end
