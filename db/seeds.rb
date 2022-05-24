@@ -8,12 +8,20 @@
 # require "faker"
 
 
-# puts 'Creating 5 toilets...'
-# toilets =[]
-# 5.times do |i|
-#   i = Toilet.create!(
-#     name: Faker::Company.name,
-#     type: 1
-#   )
-#   toilets << i
-# end
+puts 'Creating 5 toilets...'
+toilets = []
+5.times do |i|
+  i = Toilet.create!(
+    name: Faker::Company.name,
+    type: 'urinal',
+    location: "france",
+    description: "my best toilet",
+    price: 100
+  )
+  toilets << i
+end
+
+# validates :price, presence: true
+# validates :location, presence: true
+# validates :name, presence: true
+# validates :description, presence: true
