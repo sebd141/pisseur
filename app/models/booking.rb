@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :toilets
-  belongs_to :users
+  belongs_to :toilet
+  belongs_to :user
 
   validates :start_date, presence: true
   attribute :status, default: true
