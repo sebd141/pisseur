@@ -1,7 +1,9 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  flex-grow: 1;
+  padding-top: 15 px;
 }
 
 // Smallest device
@@ -38,3 +40,17 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+#map {
+  height:100vh;
+  position: sticky;
+  top: 0 ;
+  padding-left: 10px;
+}
+
+.container {
+  padding-top: 10px;
+  display:flex;
+  flex-direction: row-reverse;
+  width: cover;
+ }
