@@ -1,7 +1,8 @@
 class ToiletsController < ApplicationController
+  before_action :find_toilet, only: %i[edit show update destroy]
 
   def index
-    @toilets = Toilets.all
+    @toilets = Toilet.all
   end
 
   def new
