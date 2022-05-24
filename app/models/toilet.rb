@@ -8,5 +8,5 @@ class Toilet < ApplicationRecord
   validates :price, presence: true
   validates :location, presence: true
   validates :name, presence: true
-  validates :description
+  validates :description, presence: true
 end
