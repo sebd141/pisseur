@@ -7,5 +7,4 @@ class Toilet < ApplicationRecord
   validates :type, presence: true, inclusion: { :in => ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'] }
   validates :price, presence: true
   validates :location, presence: true
-
 end
