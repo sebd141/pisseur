@@ -1,7 +1,8 @@
 class ToiletsController < ApplicationController
+  before_action :find_toilet, only: %i[edit show update destroy]
 
   def index
-    @toilets = Toilets.all
+    @toilets = Toilet.all
   end
 
   def new
@@ -37,7 +38,7 @@ class ToiletsController < ApplicationController
 
   private
   def toilet_params
-    params.require(:toilet).permit(:location, :type, :price, :name)
+    params.require(:toilet).permit(:location, :type, :price, :name, :description)
   end
 
   def find_toilet
