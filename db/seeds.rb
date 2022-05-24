@@ -18,4 +18,26 @@
 #   toilets << i
 # end
 
-Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
+# if Rails.env.development?
+#   puts "Destroying Data Base"
+#   Toilet.destroy_all
+#   Review.destroy_all
+#   Booking.destroy_all
+#   Gender.destroy_all
+#   User.destroy_all
+# end
+
+# puts "Generating Data Base"
+
+# bob = User.create!(email: "archi@example.com", password: "password")
+
+# # Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish toilet", user: user})
+
+# toilet = Toilet.new(name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish toilet")
+# debugger
+# toilet.user = bob
+
+
+# toilet.save!
+
+# puts "Seed completed!"
