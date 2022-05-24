@@ -1,7 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :set_toilet, only: [:new, :create, :show]
 
   def new
     @booking = Booking.new
+  end
+
+  def show
   end
 
   def create
@@ -14,9 +18,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
+  end
+
+  def set_toilet
+    @toilet = Toilet.find(params[:list_id])
   end
 end
