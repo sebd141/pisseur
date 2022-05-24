@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_125651) do
+ActiveRecord::Schema.define(version: 2022_05_24_150752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,25 +20,16 @@ ActiveRecord::Schema.define(version: 2022_05_24_125651) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_date"
-    t.datetime "end_date"
-  end
-
-  create_table "gender_toilets", force: :cascade do |t|
-    t.integer "gender_id"
-    t.integer "toilet_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "toilet_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["toilet_id"], name: "index_bookings_on_toilet_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "genders", force: :cascade do |t|
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "genders_toilets", id: false, force: :cascade do |t|
-    t.bigint "gender_id", null: false
-    t.bigint "toilet_id", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -48,14 +39,23 @@ ActiveRecord::Schema.define(version: 2022_05_24_125651) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "toilet_genders", force: :cascade do |t|
+    t.bigint "gender_id", null: false
+    t.bigint "toilet_id", null: false
+    t.index ["gender_id"], name: "index_toilet_genders_on_gender_id"
+    t.index ["toilet_id"], name: "index_toilet_genders_on_toilet_id"
+  end
+
   create_table "toilets", force: :cascade do |t|
     t.string "location"
     t.integer "price"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.text "description"
     t.string "category"
+    t.index ["user_id"], name: "index_toilets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,4 +70,9 @@ ActiveRecord::Schema.define(version: 2022_05_24_125651) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "toilets"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "toilet_genders", "genders"
+  add_foreign_key "toilet_genders", "toilets"
+  add_foreign_key "toilets", "users"
 end
