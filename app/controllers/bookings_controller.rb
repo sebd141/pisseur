@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
-  before_action :set_toilet, only: [:new, :create, :show]
+  before_action :set_toilet, only: [:new, :create]
 
   def new
     @booking = Booking.new
   end
 
   def show
+
   end
 
   def create
@@ -14,11 +15,14 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to toilet_path(@toilet)
     else
-      render: :new
+      render :new
     end
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to toilets_path
   end
 
   private
@@ -28,6 +32,6 @@ class BookingsController < ApplicationController
   end
 
   def set_toilet
-    @toilet = Toilet.find(params[:list_id])
+    @toilet = Toilet.find(params[:toilet_id])
   end
 end
