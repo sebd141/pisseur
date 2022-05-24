@@ -11,8 +11,8 @@ class ToiletsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get type:string" do
-    get toilets_type:string_url
+  test "should get category:string" do
+    get toilets_category:string_url
     assert_response :success
   end
 
