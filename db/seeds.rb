@@ -31,7 +31,7 @@ end
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
 
 puts "Creating Toilets.."
-2.times do
+20.times do
   Toilet.create!(
     name: Faker::Name.middle_name,
     location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
