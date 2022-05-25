@@ -77,10 +77,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_150752) do
 
   add_foreign_key "bookings", "toilets"
   add_foreign_key "bookings", "users"
-<<<<<<< HEAD
-=======
+
   add_foreign_key "toilet_genders", "genders"
   add_foreign_key "toilet_genders", "toilets"
   add_foreign_key "toilets", "users"
->>>>>>> master
 end
