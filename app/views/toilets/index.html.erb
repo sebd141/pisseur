@@ -1,7 +1,7 @@
 <div class="cards">
     <% @toilets.each do |toilet| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag toilet.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <h2><%=toilet.name%></h2>
           <p><%=toilet.location%></p>
