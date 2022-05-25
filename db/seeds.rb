@@ -8,6 +8,13 @@
 # require "faker"
 
 
+
+
+# validates :price, presence: true
+# validates :location, presence: true
+# validates :name, presence: true
+# validates :description, presence: true
+
 # puts 'Creating 5 toilets...'
 # toilets =[]
 # 5.times do |i|
@@ -17,6 +24,7 @@
 #   )
 #   toilets << i
 # end
+
 
 require 'faker'
 
@@ -43,3 +51,4 @@ puts "Creating Toilets.."
 end
 
 puts "Finished!"
+
