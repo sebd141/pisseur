@@ -15,14 +15,18 @@
   <div class="cards">
       <% @toilets.each do |toilet| %>
         <div class="card-product">
-          <%= cl_image_tag toilet.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-product-infos">
-            <h2><%=toilet.name%></h2>
-            <p><%=toilet.location%></p>
-            <strong><%=toilet.price%> Euros</strong> </p>
-            <p><%= link_to "Show more", toilet_path(toilet) %></p>
-            <p><%= link_to "Book #{toilet.name}", new_toilet_booking_path(toilet) %></p>
-          </div>
+          <% if toilet.photo.attached? %>
+           <%= cl_image_tag toilet.photo.key, height: 300, width: 400, crop: :fill %>
+           <% else%>
+          <%= image_tag "toilette_3.jpeg", height: 300, width: 400, crop: :fill %>
+          <% end %>
+           <div class="card-product-infos">
+                <h2><%=toilet.name%></h2>
+                <p><%=toilet.location%></p>
+                <strong><%=toilet.price%> Euros</strong> </p>
+                  <p><%= link_to "Show more", toilet_path(toilet) %></p>
+                  <p><%= link_to "Book #{toilet.name}", new_toilet_booking_path(toilet) %></p>
+            </div>
         </div>
       <% end %>
   </div>
