@@ -1,6 +1,10 @@
 <%# CARD TRIP %>
 <div class="card-trip">
+  <% toilet_photo = @toilet.photo %>
+
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <%# <%= image_tag(current_toilet.photo) %>
+
   <div class="card-trip-infos">
     <div>
       <h2><%=@toilet.name%></h2>
@@ -8,6 +12,6 @@
       <p><%=@toilet.location%></p>
     </div>
     <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <%= image_tag(current_user.photo, class: "card-trip-user avatar-bordered") %>
   </div>
 </div>
