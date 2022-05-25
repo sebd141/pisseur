@@ -4,4 +4,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   attribute :status, default: true
+  def end_date
+    :start_date + 15.minutes
+  end
 end
