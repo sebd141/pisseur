@@ -8,9 +8,10 @@
       <% end %>
     <div class="card-trip-infos-seb">
       <div>
-        <h2><%=@toilet.name%></h2>
+        <h2>More info about <%=@toilet.name%>:</h2>
         <p><%=@toilet.description%></p>
-        <p><%=@toilet.location%></p>
+        <br>
+        <p>Where? <h2></h2><%=@toilet.location%></h2></p>
       </div>
       <h2 class="card-trip-pricing-seb">Price per pee is <%=@toilet.price%>€</h2>
       <% if @toilet.photo.attached? %>
@@ -22,11 +23,11 @@
   </div>
   <div class="card-trip-seb">
     <div class="log">
-      <H3><%=@toilet.name%> is a nice place!</H3>
-      <strong>It costs only <%=@toilet.price%>€</strong>
+      <H3>Book <%=@toilet.name%>'s toilet now!</H3>
       <%= simple_form_for [@toilet, @booking] do |f| %>
+      <br>
       <h2>When do you want to pee?</h2>
-      <%= f.input :start_date, as: :select, collection: [['Now', Time.now], ['15', Time.now + 15.minutes] ,['30', Time.now + 30.minutes]], prompt: 'Are you in a hurry?', label: false %>
+      <%= f.input :start_date, as: :select, collection: [['I want to pee now!!', Time.now], ['I can hold it for 15 min', Time.now + 15.minutes] ,['I can hold it for 30 min', Time.now + 30.minutes]], prompt: '- Are you in a hurry?', label: false %>
       <div id="wraper">
         <%= f.submit "Book #{@toilet.name}", class: "btn btn-primary" %>
       </div>

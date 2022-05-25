@@ -58,8 +58,11 @@
 
  .container_show {
   padding-top: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // grid-template-columns: 1fr 1fr;
+  width: fit-content;
   padding-bottom: 10px;
+  margin-left: 30%;
  }
