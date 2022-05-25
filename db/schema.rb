@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 2022_05_24_194245) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "gender_toilets", force: :cascade do |t|
-    t.integer "gender_id"
-    t.integer "toilet_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "genders", force: :cascade do |t|
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
@@ -49,11 +42,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194245) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
     t.bigint "toilet_id", null: false
     t.index ["toilet_id"], name: "index_reviews_on_toilet_id"
->>>>>>> master
   end
 
   create_table "toilets", force: :cascade do |t|
