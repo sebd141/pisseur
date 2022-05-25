@@ -1,10 +1,12 @@
 <%# CARD TRIP %>
 <div class="card-trip">
-  <% toilet_photo = @toilet.photo %>
-
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <%# <%= image_tag(current_toilet.photo) %>
-
+  <div id="picture-show">
+    <% if @toilet.photo.attached? %>
+      <%= image_tag(@toilet.photo) %>
+    <% else%>
+      <%= image_tag("toilette_3") %>
+    <% end %>
+  </div>
   <div class="card-trip-infos">
     <div>
       <h2><%=@toilet.name%></h2>
@@ -12,6 +14,10 @@
       <p><%=@toilet.location%></p>
     </div>
     <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
-    <%= image_tag(current_user.photo, class: "card-trip-user avatar-bordered") %>
+    <% if @toilet.photo.attached? %>
+      <%= image_tag(@toilet.user.photo, class: "card-trip-user avatar-bordered") %>
+    <% else%>
+      <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
+    <% end %>
   </div>
 </div>
