@@ -25,19 +25,21 @@
 #   toilets << i
 # end
 
+<<<<<<< HEAD
 Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
 <<<<<<< HEAD
 >>>>>>> master
 =======
 
 
+=======
+>>>>>>> master
 require 'faker'
 
-user = User.create({email: "archi_legrand@example.com", encrypted_password: "lewagon"})
+user = User.create({email: "archi_legrand@example.com", password: "lewagon"})
 
 puts "Cleaning database..."
 Toilet.destroy_all
-
 
 puts "Creating Toilets.."
 25.times do
