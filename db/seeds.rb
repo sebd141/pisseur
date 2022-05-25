@@ -37,6 +37,7 @@ if Rails.env.development?
 end
 
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
+seb = User.create({email: "sebastien.dellis@gmail.com", password: "lewagon"})
 
 puts "Creating Toilets.."
 20.times do
@@ -51,4 +52,3 @@ puts "Creating Toilets.."
 end
 
 puts "Finished!"
-

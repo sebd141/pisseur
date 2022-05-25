@@ -15,7 +15,10 @@
   <div class="cards">
       <% @toilets.each do |toilet| %>
         <div class="card-product">
+        <% if user_signed_in? %>
           <%= cl_image_tag toilet.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+
           <div class="card-product-infos">
             <h2><%=toilet.name%></h2>
             <p><%=toilet.location%></p>
