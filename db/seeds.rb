@@ -20,10 +20,15 @@
 
 require 'faker'
 
-bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
-
 puts "Cleaning database..."
-Toilet.destroy_all
+if Rails.env.development?
+  Toilet.destroy_all
+  Review.destroy_all
+  Booking.destroy_all
+  User.destroy_all
+end
+
+bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
 
 puts "Creating Toilets.."
 2.times do
