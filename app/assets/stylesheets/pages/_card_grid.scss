@@ -55,3 +55,11 @@
   width: cover;
   padding-bottom: 10px;
  }
+
+ .container_show {
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: center;
+  padding-bottom: 10px;
+ }

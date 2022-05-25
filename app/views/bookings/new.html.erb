@@ -1,14 +1,36 @@
 
-
-<div class="log">
-<H5><%=@toilet.name%>is a nice place!</H5>
-
-            <strong>It costs only <%=@toilet.price%> Euros</strong>
-
-
-  <%= simple_form_for [@toilet, @booking] do |f| %>
-    <h2>When do you want to pee?</h2>
-    <%= f.input :start_date, as: :select, collection: [['Now', Time.now], ['15', Time.now + 15.minutes] ,['30', Time.now + 30.minutes]], prompt: 'Are you in a hurry?', label: false %>
-    <%= f.submit "Book #{@toilet.name}", class: "btn btn-primary" %>
-  <% end %>
+<div class="container_show">
+  <div class="card-trip-seb">
+      <% if @toilet.photo.attached? %>
+        <%= image_tag(@toilet.photo) %>
+      <% else%>
+        <%= image_tag("toilette_3") %>
+      <% end %>
+    <div class="card-trip-infos-seb">
+      <div>
+        <h2><%=@toilet.name%></h2>
+        <p><%=@toilet.description%></p>
+        <p><%=@toilet.location%></p>
+      </div>
+      <h2 class="card-trip-pricing-seb">Price per pee is <%=@toilet.price%>€</h2>
+      <% if @toilet.photo.attached? %>
+        <%= image_tag(@toilet.user.photo, class: "card-trip-user-seb avatar-bordered") %>
+      <% else%>
+        <%= image_tag("pissr_logo", class: "card-trip-user-seb avatar-bordered") %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-trip-seb">
+    <div class="log">
+      <H3><%=@toilet.name%> is a nice place!</H3>
+      <strong>It costs only <%=@toilet.price%>€</strong>
+      <%= simple_form_for [@toilet, @booking] do |f| %>
+      <h2>When do you want to pee?</h2>
+      <%= f.input :start_date, as: :select, collection: [['Now', Time.now], ['15', Time.now + 15.minutes] ,['30', Time.now + 30.minutes]], prompt: 'Are you in a hurry?', label: false %>
+      <div id="wraper">
+        <%= f.submit "Book #{@toilet.name}", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

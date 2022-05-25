@@ -1,5 +1,4 @@
 <%# CARD TRIP %>
-<div class="container">
   <div class="card-trip">
       <% if @toilet.photo.attached? %>
         <%= image_tag(@toilet.photo) %>
@@ -20,16 +19,3 @@
       <% end %>
     </div>
   </div>
-  <div class="card-trip">
-  <% @booking = [] %>
-    <div class="log">
-      <H5><%=@toilet.name%>is a nice place!</H5>
-      <strong>It costs only <%=@toilet.price%> Euros</strong>
-      <%= simple_form_for [@user, @toilet, @booking] do |f| %>
-      <h2>When do you want to pee?</h2>
-      <%= f.input :start_date, as: :select, collection: [['Now', Time.now], ['15', Time.now + 15.minutes] ,['30', Time.now + 30.minutes]], prompt: 'Are you in a hurry?', label: false %>
-      <%= f.submit "Book #{@toilet.name}", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
