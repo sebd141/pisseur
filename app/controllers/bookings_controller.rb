@@ -11,8 +11,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @booking.toilet = @toilet
-    if @booking.save
+    if @booking.save!
       redirect_to toilet_path(@toilet)
     else
       render :new
