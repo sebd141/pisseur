@@ -1,23 +1,23 @@
 <%# CARD TRIP %>
-<div class="card-trip">
-  <div id="picture-show">
-    <% if @toilet.photo.attached? %>
-      <%= image_tag(@toilet.photo) %>
-    <% else%>
-      <%= image_tag("toilette_3") %>
-    <% end %>
-  </div>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%=@toilet.name%></h2>
-      <p><%=@toilet.description%></p>
-      <p><%=@toilet.location%></p>
+<div class="container">
+  <div class="card-trip">
+      <% if @toilet.photo.attached? %>
+        <%= image_tag(@toilet.photo) %>
+      <% else%>
+        <%= image_tag("toilette_3") %>
+      <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%=@toilet.name%></h2>
+        <p><%=@toilet.description%></p>
+        <p><%=@toilet.location%></p>
+      </div>
+      <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
+      <% if @toilet.photo.attached? %>
+        <%= image_tag(@toilet.user.photo, class: "card-trip-user avatar-bordered") %>
+      <% else%>
+        <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
+      <% end %>
     </div>
-    <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
-    <% if @toilet.photo.attached? %>
-      <%= image_tag(@toilet.user.photo, class: "card-trip-user avatar-bordered") %>
-    <% else%>
-      <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
-    <% end %>
   </div>
 </div>
