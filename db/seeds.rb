@@ -27,6 +27,7 @@
 
 
 require 'faker'
+# require 'open-uri'
 
 puts "Cleaning database..."
 if Rails.env.development?
@@ -35,8 +36,12 @@ if Rails.env.development?
   Booking.destroy_all
   User.destroy_all
 end
+puts "Creating User"
 
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
+
+# puts "Uploading Photo"
+# file = URI.open('https://royaltoiletry.com/wp-content/uploads/2019/10/Classic-Plain-Gold-Toilet-1.jpg')
 
 puts "Creating Toilets.."
 20.times do
@@ -50,5 +55,11 @@ puts "Creating Toilets.."
   )
 end
 
-puts "Finished!"
+# puts "Attaching Photos"
+# debugger
+# Toilet.all.each do |toilet|
+#   toilet.photo.attach(io: file, filename: 'Toilet.jpeg', content_type: 'image/jpeg')
+#   toilet.save!
+# end
 
+puts "Finished!"
