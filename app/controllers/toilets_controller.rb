@@ -12,6 +12,7 @@ class ToiletsController < ApplicationController
 
   def create
     @toilet = Toilet.new(toilet_params)
+    @toilet.user = current_user
     if @toilet.save
       redirect_to toilets_path(@toilet)
     else
