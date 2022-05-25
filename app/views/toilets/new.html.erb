@@ -1,0 +1,17 @@
+<div class="log">
+<h1>NEW PISSR TOILET</h1>
+<%= simple_form_for([@user, @toilet]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :category, collection: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'], prompt: "- What type of toilet?" %>
+
+  <%= f.association :genders, collection: ['male', 'female', 'non-binary'], prompt: "- Select gender preferance(s)",  as: :check_boxes %>
+  <div class="form-actions btn btn-ghost">
+          <%= f.button :submit, "CREATE A PISSR TOILET" %>
+  </div>
+<% end %>
+</div>
+
+
