@@ -28,22 +28,27 @@
 
 require 'faker'
 
-user = User.create({email: "archi_legrand@example.com", password: "lewagon"})
-
 puts "Cleaning database..."
-Toilet.destroy_all
+if Rails.env.development?
+  Toilet.destroy_all
+  Review.destroy_all
+  Booking.destroy_all
+  User.destroy_all
+end
+
+bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
 
 puts "Creating Toilets.."
-25.times do
-  toilet = Toilet.create!(
+2.times do
+  Toilet.create!(
     name: Faker::Name.middle_name,
     location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     description: Faker::Lorem.paragraph,
     price: Faker::Number.number(digits: 2),
     category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
-    user: user
+    user: bob
   )
-  toilet.save!
 end
+
 puts "Finished!"
 >>>>>>> master
