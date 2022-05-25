@@ -16,7 +16,8 @@
             <h2><%=toilet.name%></h2>
             <p><%=toilet.location%></p>
             <strong><%=toilet.price%> Euros</strong> </p>
-            <%= link_to "Book #{toilet.name}", new_toilet_booking_path(toilet) %>
+            <p><%= link_to "Show more", toilet_path(toilet) %></p>
+            <p><%= link_to "Book #{toilet.name}", new_toilet_booking_path(toilet) %></p>
           </div>
         </div>
       <% end %>
