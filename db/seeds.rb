@@ -8,19 +8,7 @@
 # require "faker"
 
 
-<<<<<<< HEAD
-puts 'Creating 5 toilets...'
-toilets = []
-5.times do |i|
-  i = Toilet.create!(
-    name: Faker::Company.name,
-    type: 'urinal',
-    location: "france",
-    description: "my best toilet",
-    price: 100
-  )
-  toilets << i
-end
+
 
 # validates :price, presence: true
 # validates :location, presence: true
@@ -38,4 +26,30 @@ end
 # end
 
 Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
+<<<<<<< HEAD
+>>>>>>> master
+=======
+
+
+require 'faker'
+
+user = User.create({email: "archi_legrand@example.com", encrypted_password: "lewagon"})
+
+puts "Cleaning database..."
+Toilet.destroy_all
+
+
+puts "Creating Toilets.."
+25.times do
+  toilet = Toilet.create!(
+    name: Faker::Name.middle_name,
+    location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    description: Faker::Lorem.paragraph,
+    price: Faker::Number.number(digits: 2),
+    category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
+    user: user
+  )
+  toilet.save!
+end
+puts "Finished!"
 >>>>>>> master
