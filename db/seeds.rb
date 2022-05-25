@@ -14,7 +14,7 @@
 # validates :location, presence: true
 # validates :name, presence: true
 # validates :description, presence: true
-=======
+
 # puts 'Creating 5 toilets...'
 # toilets =[]
 # 5.times do |i|
@@ -25,15 +25,7 @@
 #   toilets << i
 # end
 
-<<<<<<< HEAD
-Toilet.create!({name: "Terminator", description: "This toilet is the best toilet ever...", price: "4$", location: "BeCentral", category: "Turkish Toilet"  })
-<<<<<<< HEAD
->>>>>>> master
-=======
 
-
-=======
->>>>>>> master
 require 'faker'
 
 user = User.create({email: "archi_legrand@example.com", password: "lewagon"})
