@@ -12,6 +12,16 @@ class ToiletsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { toilet: toilet })
       }
     end
+
+    if params[:query].present?
+      sql_query = " \
+        toilets.name ILIKE :query \
+        OR toilets.location ILIKE :query \
+        "
+      @toilets = Toilet.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @toilets = Toilet.all
+    end
   end
 
   def new
