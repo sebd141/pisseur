@@ -36,10 +36,10 @@ if Rails.env.development?
   Booking.destroy_all
   User.destroy_all
 end
-puts "Creating User"
+# puts "Creating User"
 
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
-seb = User.create({email: "sebastien.dellis@gmail.com", password: "lewagon"})
+# seb = User.create({email: "sebastien.dellis@gmail.com", password: "lewagon"})
 
 # puts "Uploading Photo"
 # file = URI.open('https://royaltoiletry.com/wp-content/uploads/2019/10/Classic-Plain-Gold-Toilet-1.jpg')
