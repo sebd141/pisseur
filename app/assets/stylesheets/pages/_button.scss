@@ -41,3 +41,29 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-edit {
+  margin-top: 15px;
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 3%;
+}
+
+.btn-delete {
+  margin-top: 15px;
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 3%;
+}

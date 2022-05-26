@@ -1,4 +1,5 @@
 <%# CARD TRIP %>
+<div class="container_show">
   <div class="card-trip">
       <% if @toilet.photo.attached? %>
         <%= image_tag(@toilet.photo) %>
@@ -17,6 +18,8 @@
       <% else%>
         <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
       <% end %>
-      <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-ghost" %>
+      <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-edit" %>
+      <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-ghost btn-delete" %>
     </div>
   </div>
+</div>
