@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_toilet, only: [:new, :create]
+  before_action :set_toilet, only: %i[new show create]
 
   def new
     @booking = Booking.new
   end
 
   def show
-
   end
 
   def create
