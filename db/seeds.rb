@@ -51,7 +51,8 @@ puts "Creating Toilets.."
     description: Faker::Lorem.paragraph,
     price: Faker::Number.number(digits: 2),
     category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
-    user: bob
+    user: bob,
+    gender: [0, 1, 2, 3].to_s.sample
   )
 end
 
