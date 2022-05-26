@@ -17,5 +17,6 @@
       <% else%>
         <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
       <% end %>
+      <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-ghost" %>
     </div>
   </div>
