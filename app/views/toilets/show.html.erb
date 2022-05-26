@@ -18,8 +18,10 @@
       <% else%>
         <%= image_tag("pissr_logo", class: "card-trip-user avatar-bordered") %>
       <% end %>
-      <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-edit" %>
-      <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-ghost btn-delete" %>
+      <div style="btn-test">
+        <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-edit" %>
+        <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-delete" %>
+      </div>
     </div>
   </div>
 </div>

@@ -27,21 +27,6 @@
   color: white;
 }
 
-.btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
-  transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
-  color: white;
-}
-
 .btn-edit {
   margin-top: 15px;
   color: #4A4A4A;
@@ -57,8 +42,8 @@
 
 .btn-delete {
   margin-top: 15px;
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #a61c1c;
+  border: 1px solid #a61c1c;
   padding: 8px 24px;
   border-radius: 10px;
   font-weight: lighter;
@@ -66,4 +51,13 @@
   transition: opacity 0.3s ease;
   align-items: center;
   margin-bottom: 3%;
+}
+
+.btn-delete:hover {
+  color: #f70303;
+  border: 1px solid #f70303;
+}
+
+.btn-test {
+  vertical-align: auto;
 }
