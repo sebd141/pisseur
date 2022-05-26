@@ -1,20 +1,19 @@
 class BookingsController < ApplicationController
-  before_action :set_toilet, only: [:new, :create]
+  before_action :set_toilet, only: %i[new create]
 
   def new
     @booking = Booking.new
   end
 
   def show
-
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.toilet = @toilet
-    if @booking.save!
-      redirect_to toilet_path(@toilet)
+    if @booking.save
+      redirect_to booking_path(@booking)
     else
       render :new
     end

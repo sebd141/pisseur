@@ -35,7 +35,7 @@ class ToiletsController < ApplicationController
     @toilet.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to toilet_path
+    redirect_to root_path
   end
 
   private

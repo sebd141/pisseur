@@ -1,5 +1,38 @@
-<br><h1> Bookings</h1>
+<div class="container_show">
+<br>
+<% booking = Booking.find(params[:id]) %>
+<% if (((booking.start_date - Time.now)/60).to_i).positive? %>
+<h1>Envoy your pee in <%= ((booking.start_date - Time.now)/60).to_i %> min :-)</h1>
+  <div class="card-trip-seb">
+      <% if booking.toilet.photo.attached? %>
+        <%= image_tag(booking.toilet.photo) %>
+      <% else%>
+        <%= image_tag("toilette_3") %>
+      <% end %>
+    <div class="card-trip-infos-seb">
+      <div>
+        <h4>Your booked toilet: <%=booking.toilet.name%></h4>
+        <h2>More info about ?</h2>
+        <p><%=booking.toilet.description%></p>
+        <br>
+        <h4>Where?</h4>
+        <h4><%=booking.toilet.location%></h4>
+      </div>
+      <h4 class="card-trip-pricing-seb">Price per pee is <%=booking.toilet.price%>€</h4>
+      <% if booking.toilet.photo.attached? %>
+        <%= image_tag(booking.user.photo, class: "card-trip-user-seb avatar-bordered") %>
+      <% else%>
+        <%= image_tag("pissr_logo", class: "card-trip-user-seb avatar-bordered") %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+<h1>Sorry you are late</h1>
+ <div class="card-trip-seb">
+ <%= image_tag("chat_potte.jpeg") %>
+ <div class="container_chat">
+ <%= link_to "Make a new booking", new_toilet_booking_path(booking.toilet), class: "form-actions btn btn-ghost" %>
+ </div>
+<% end %>
 
-<%=@bookings.each do |booking| %>
-  <%= booking.status%>
-<%=end%>
+</div>
