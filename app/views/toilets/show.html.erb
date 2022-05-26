@@ -20,7 +20,7 @@
       <% end %>
       <div class="btn-test">
         <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-edit" %>
-        <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-delete" %>
+        <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-delete", data: {confirm: "Delete this toilet ?" } %>
       </div>
     </div>
   </div>
