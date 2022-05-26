@@ -27,7 +27,7 @@
       <%= simple_form_for [@toilet, @booking] do |f| %>
       <br>
       <h2>When do you want to pee?</h2>
-      <%= f.input :start_date, as: :select, collection: [['I want to pee now!!', Time.now], ['I can hold it for 15 min', Time.now + 15.minutes] ,['I can hold it for 30 min', Time.now + 30.minutes]], prompt: '- Are you in a hurry?', label: false %>
+      <%= f.input :start_date, as: :select, collection: [['Asap (5min)!', Time.now + 5.minutes], ['I can hold it for 15 min', Time.now + 15.minutes] ,['I can hold it for 30 min', Time.now + 30.minutes]], prompt: '- Are you in a hurry?', label: false %>
       <div id="wraper">
         <%= f.submit "Book #{@toilet.name}", class: "btn btn-primary" %>
       </div>
