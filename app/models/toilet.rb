@@ -20,5 +20,5 @@ class Toilet < ApplicationRecord
   validates :price, presence: true
   validates :location, presence: true
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 250, too_long: "%{count} characters is the maximum allowed" }
 end
