@@ -1,8 +1,8 @@
 <div class="log">
   <h1>Happy for your pee? Let a review!</h1>
   <%= simple_form_for([@toilet, @review], url: toilet_reviews_path, method: :post) do |f|%>
-    <%= f.input :description, input_html: { class: 'input_w' } %>
-    <%= f.input :rating, input_html: { class: 'input_w' } %>
+    <%= f.input :description %>
+    <%= f.input :rating %>
   <div class="log_btn">
     <div class="form-actions btn btn-ghost">
       <%= f.button :submit, "Send my review"%>
