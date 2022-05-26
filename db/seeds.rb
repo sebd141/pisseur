@@ -27,6 +27,7 @@
 
 
 require 'faker'
+# require 'open-uri'
 
 puts "Cleaning database..."
 if Rails.env.development?
@@ -35,9 +36,13 @@ if Rails.env.development?
   Booking.destroy_all
   User.destroy_all
 end
+puts "Creating User"
 
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
 seb = User.create({email: "sebastien.dellis@gmail.com", password: "lewagon"})
+
+# puts "Uploading Photo"
+# file = URI.open('https://royaltoiletry.com/wp-content/uploads/2019/10/Classic-Plain-Gold-Toilet-1.jpg')
 
 puts "Creating Toilets.."
 20.times do
@@ -47,7 +52,8 @@ puts "Creating Toilets.."
     description: Faker::Lorem.paragraph,
     price: Faker::Number.number(digits: 2),
     category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
-    user: bob
+    user: bob,
+    gender: [0, 1, 2, 3].to_s.sample
   )
 end
 
