@@ -1,0 +1,21 @@
+<div class="log">
+  <h2>Add a review</h2>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :description,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "description" } %>
+      <%= f.input :rating,
+                  required: true,
+                  input_html: { autocomplete: "rating" } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="log_btn">
+      <div class="form-actions btn btn-ghost">
+        <%= f.button :submit, "Submit my review" %>
+      </div>
+    </div>
+  <% end %>
+</div>
