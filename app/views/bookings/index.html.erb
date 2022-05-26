@@ -16,7 +16,7 @@
         <% @bookings.each do |booking| %>
           <div class="card-product">
             <% if booking.toilet.photo.attached? %>
-              <%= cl_image_tag booking.photo.key, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag booking.toilet.photo.key, height: 300, width: 400, crop: :fill %>
             <% else %>
               <%= image_tag "toilette_3.jpeg", height: 300, width: 400, crop: :fill %>
             <% end %>
