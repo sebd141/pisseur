@@ -27,11 +27,11 @@
     </div>
   </div>
 <% else %>
-<h1>Sorry you are late</h1>
+<h1>Did you enjoy your pee?</h1>
  <div class="card-trip-seb">
  <%= image_tag("chat_potte.jpeg") %>
  <div class="container_chat">
- <%= link_to "Make a new booking", new_toilet_booking_path(booking.toilet), class: "form-actions btn btn-ghost" %>
+ <%= link_to "Make a toilet review",  new_toilet_review_path(booking.toilet), class: "form-actions btn btn-ghost" %>
  </div>
 <% end %>
 
