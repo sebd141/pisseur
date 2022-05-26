@@ -16,12 +16,14 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, as: :file %>
     </div>
-    <div class="frm_bt">
-        <div class="form-actions btn btn-ghost">
-          <%= f.button :submit, "Sign up" %>
+      <div class="frm_bt">
+        <div class="log_btn">
+          <div class="form-actions btn btn-ghost">
+            <%= f.button :submit, "Sign up" %>
+          </div>
         </div>
-        <p>You have already an Pissr account?</p>
-        <p>You can <a href="users/sign_in">Log in</a></p>
-        <% end %>
-    </div>
+          <p>You have already an Pissr account?</p>
+          <p>You can <a href="users/sign_in">Log in</a></p>
+          <% end %>
+      </div>
 </div>

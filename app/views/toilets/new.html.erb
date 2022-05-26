@@ -9,8 +9,10 @@
   <%= f.input :photo, as: :file %>
 
   <%= f.association :genders, collection: ['male', 'female', 'non-binary'], prompt: "- Select gender preferance(s)",  as: :check_boxes %>
-  <div class="form-actions btn btn-ghost">
+  <div class="log_btn">
+    <div class="form-actions btn btn-ghost">
           <%= f.button :submit, "CREATE A PISSR TOILET" %>
+    </div>
   </div>
 <% end %>
 </div>
