@@ -14,7 +14,7 @@ class ToiletsController < ApplicationController
     @toilet = Toilet.new(toilet_params)
     @toilet.user = current_user
     if @toilet.save
-      redirect_to toilets_path(@toilet)
+      redirect_to toilet_path(@toilet)
     else
       render :new
     end
