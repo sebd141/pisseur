@@ -4,6 +4,13 @@ class ToiletsController < ApplicationController
 
   def index
     @toilets = Toilet.all.order("created_at desc")
+
+    @markers = @toilets.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def new
