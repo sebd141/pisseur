@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2018-08-16/Urinals.jpg?pw=1200);">
     <div class="mega">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && @bookings.present? %>
         <h1>Your<strong> Reservations</strong> !</h1>
         <h2>You can see here all your reservations</h2>
       <% else %>
@@ -13,6 +13,7 @@
 <% if user_signed_in? %>
   <div class="container">
     <div class="cards">
+      <% if @bookings.present? %>
         <% @bookings.each do |booking| %>
           <div class="card-product">
             <% if booking.toilet.photo.attached? %>
@@ -30,6 +31,12 @@
             </div>
           </div>
         <% end %>
+      <% else %>
+       <div class="no-booking">
+        Seems you haven't booked any PISSR Toilet yet !
+        <p><%= link_to "Go back to find a toilet ", toilets_path, class: "btn small-btn-show btn-test" %></p>
+        <div>
+      <% end %>
     </div>
   </div>
 <% else %>
