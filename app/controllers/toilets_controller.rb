@@ -21,7 +21,7 @@ class ToiletsController < ApplicationController
         "
       @toilets = Toilet.where(sql_query, query: "%#{params[:query]}%")
     else
-      @toilets = Toilet.all
+      @toilets = Toilet.all.order("created_at desc")
     end
   end
 
