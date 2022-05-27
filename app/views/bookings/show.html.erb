@@ -2,7 +2,7 @@
   <br>
   <% booking = Booking.find(params[:id]) %>
   <% if (((booking.start_date - Time.now)/60).to_i).positive? %>
-    <h1>Envoy your pee in <%= ((booking.start_date - Time.now)/60).to_i %> min 😎</h1>
+    <h1>Enjoy your pee in <%= ((booking.start_date - Time.now)/60).to_i %> min 😎</h1>
     <div class="card-trip-seb">
         <% if booking.toilet.photo.attached? %>
           <%= image_tag(booking.toilet.photo) %>
