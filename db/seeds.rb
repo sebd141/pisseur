@@ -27,6 +27,7 @@
 
 
 require 'faker'
+# require 'open-uri'
 
 puts "Cleaning database..."
 if Rails.env.development?
@@ -35,20 +36,25 @@ if Rails.env.development?
   Booking.destroy_all
   User.destroy_all
 end
+puts "Creating User"
 
 bob = User.create({email: "archi_legrand@example.com", password: "lewagon"})
+seb = User.create({email: "sebastien.dellis@gmail.com", password: "lewagon"})
+
+# puts "Uploading Photo"
+# file = URI.open('https://royaltoiletry.com/wp-content/uploads/2019/10/Classic-Plain-Gold-Toilet-1.jpg')
 
 puts "Creating Toilets.."
-20.times do
+10.times do
   Toilet.create!(
     name: Faker::Name.middle_name,
-    location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    location: ['34C, Rue de Thisnes, 4280 Liège', '50, Sint-Barbarastraat, 3920 Lommel', '146, Rue de la Misbour, 6637 Bastogne', '199, Tuinstraat, 8953 Ypres', '41, Rue de la Platinerie, 5660 Philippeville','5A, Groenedijkstraat, 8460 Ostende', '126, Meersveldweg, 9340 Alost', '178, Merktweg, 9310 Alost', '77, Flère, 4860 Pepinster', '16, Rue du Hameau, 7951 Ladeuze'].sample,
     description: Faker::Lorem.paragraph,
     price: Faker::Number.number(digits: 2),
     category: ['urinal', 'washing toilet', 'Turkish toilet', 'dry toilet', 'chemical toilet'].sample,
-    user: bob
+    user: bob,
+    gender: [0, 1, 2, 3].sample
   )
 end
 
 puts "Finished!"
-

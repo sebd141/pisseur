@@ -3,7 +3,25 @@ class ToiletsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @toilets = Toilet.all
+    @toilets = Toilet.all.order("created_at desc")
+
+    @markers = @toilets.geocoded.map do |toilet|
+      {
+        lat: toilet.latitude,
+        lng: toilet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { toilet: toilet })
+      }
+    end
+
+    if params[:query].present?
+      sql_query = " \
+        toilets.name ILIKE :query \
+        OR toilets.location ILIKE :query \
+        "
+      @toilets = Toilet.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @toilets = Toilet.all
+    end
   end
 
   def new
@@ -35,12 +53,13 @@ class ToiletsController < ApplicationController
     @toilet.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to toilets_path
+    redirect_to root_path
   end
 
   private
+
   def toilet_params
-    params.require(:toilet).permit(:location, :category, :price, :name, :description, :photo)
+    params.require(:toilet).permit(:location, :category, :price, :name, :description, :photo, :gender)
   end
 
   def find_toilet

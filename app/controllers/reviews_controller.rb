@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
 
   def index
-    @reviews = Reviews.all
+    @reviews = Review.all
   end
 
   def new
@@ -12,12 +12,9 @@ class ReviewsController < ApplicationController
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @review = Review.new(review_params)
-    @review.toilet = @toilet
-    if @review.save
-      redirect_to toilet_path(@toilet)
-    else
-      render :new
-    end
+    # @review.toilet = @toilet
+    @review.save
+    redirect_to toilet_path(@toilet)
   end
 
   def edit
