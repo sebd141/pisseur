@@ -1,0 +1,9 @@
+<<div class="log">
+<h1>Edit your booking</h1>
+<%= simple_form_for([@booking]) do |f| %>
+  <%= f.input :start_date, as: :select, collection: [['Asap (5min)!', Time.now + 5.minutes], ['I can hold it for 15 min', Time.now + 15.minutes] ,['I can hold it for 30 min', Time.now + 30.minutes]], prompt: '- Are you in a hurry?', label: false %>
+  <div class="form-actions btn btn-ghost">
+    <%= f.submit "Update your booking", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
