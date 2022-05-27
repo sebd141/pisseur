@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in config/https://res.cloudinary.com/dlyi5kech/image/upload/v1653648388/development/WC_jo2l1c.jpg.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -96,6 +96,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.serve_static_assets = true
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
