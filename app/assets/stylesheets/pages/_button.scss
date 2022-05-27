@@ -138,3 +138,48 @@
   color: #000dff;
   border: 1px solid #000dff;
 }
+
+.btn-book-reservation {
+  margin-top: 30px;
+  color: #000dff;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.btn-book-reservation:hover {
+  color: #000dff;
+  border: 1px solid #000dff;
+}
+
+.btn-cancel-reservation {
+  margin-top: 30px;
+  color: #f70303;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+}
+
+.btn-cancel-reservation:hover {
+  color: #f70303;
+  border: 1px solid #f70303;
+}
