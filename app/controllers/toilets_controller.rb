@@ -3,17 +3,6 @@ class ToiletsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @toilets = Toilet.all.order("created_at desc")
-
-    @markers = @toilets.geocoded.map do |toilet|
-      {
-        lat: toilet.latitude,
-        lng: toilet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { toilet: toilet }),
-        image_url: helpers.asset_url("pissr_logo")
-      }
-    end
-
     if params[:query].present?
       sql_query = " \
         toilets.name ILIKE :query \
@@ -22,6 +11,15 @@ class ToiletsController < ApplicationController
       @toilets = Toilet.where(sql_query, query: "%#{params[:query]}%")
     else
       @toilets = Toilet.all.order("created_at desc")
+    end
+
+    @markers = @toilets.geocoded.map do |toilet|
+      {
+        lat: toilet.latitude,
+        lng: toilet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { toilet: toilet }),
+        image_url: helpers.asset_url("pissr_logo")
+      }
     end
   end
 
