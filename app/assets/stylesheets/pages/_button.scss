@@ -118,7 +118,7 @@
 }
 
 .btn-book {
-  margin-top: 5px;
+  margin-top: 30px;
   color: #000dff;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
@@ -128,7 +128,10 @@
   transition: opacity 0.3s ease;
   align-items: center;
   margin-bottom: 3%;
-  flex-direction: column;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .btn-book:hover {
