@@ -11,6 +11,8 @@
         <h2><%=@toilet.name%></h2>
         <p><%=@toilet.description%></p>
         <p><%=@toilet.location%></p>
+        <br>
+        <p>Average rating of this toilet: <strong><%= @toilet.reviews.average(:rating).to_f %></strong></p>
         <p>
       </div>
       <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
