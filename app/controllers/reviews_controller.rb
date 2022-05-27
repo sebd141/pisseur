@@ -12,8 +12,10 @@ class ReviewsController < ApplicationController
   def create
     @toilet = Toilet.find(params[:toilet_id])
     @review = Review.new(review_params)
-    # @review.toilet = @toilet
+    @review.toilet = @toilet
+
     @review.save
+
     redirect_to toilet_path(@toilet)
   end
 
