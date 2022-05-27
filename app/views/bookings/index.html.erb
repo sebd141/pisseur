@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2018-08-16/Urinals.jpg?pw=1200);">
     <div class="mega">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && @bookings.present? %>
         <h1>Your<strong> Reservations</strong> !</h1>
         <h2>You can see here all your reservations</h2>
       <% else %>
@@ -10,28 +10,35 @@
     </div>
 </div>
 
-<% if user_signed_in? %>
-  <div class="container">
-    <div class="cards">
-        <% @bookings.each do |booking| %>
-          <div class="card-product">
-            <% if booking.toilet.photo.attached? %>
-              <%= cl_image_tag booking.toilet.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <%= image_tag "toilette_3.jpeg", height: 300, width: 400, crop: :fill %>
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%=booking.toilet.name%></h2>
-              <p><%=booking.toilet.location%></p>
-              <strong><%=booking.toilet.price%> Euros</strong> </p>
-              <p><%= link_to "Show more", toilet_path(booking.toilet), class: "btn small-btn-show btn-test" %></p>
-              <p><%= link_to "Rebook this toilet", new_toilet_booking_path(booking.toilet), class: "btn small-btn-book btn-test"  %></p>
-              <p><%= link_to "Cancel booking", booking_path(booking), method: :delete, class: "btn small-btn-delete btn-test", data: {confirm: "Cancel booking ?"} %></p>
+<% if @bookings.present? %>
+  <% if user_signed_in? %>
+      <div class="cards">
+          <% @bookings.each do |booking| %>
+            <div class="card-product">
+              <% if booking.toilet.photo.attached? %>
+                <%= cl_image_tag booking.toilet.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag "toilette_3.jpeg", height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos">
+                <h2><%=booking.toilet.name%></h2>
+                <p><%=booking.toilet.location%></p>
+                <strong><%=booking.toilet.price%> Euros</strong> </p>
+                <p><%= link_to "Show more", toilet_path(booking.toilet), class: "btn small-btn-show btn-test" %></p>
+                <p><%= link_to "Rebook this toilet", new_toilet_booking_path(booking.toilet), class: "btn btn-h btn-test"  %></p>
+                <p><%= link_to "Cancel booking", booking_path(booking), method: :delete, class: "btn small-btn-delete btn-test", data: {confirm: "Cancel booking ?"} %></p>
+              </div>
             </div>
-          </div>
-        <% end %>
-    </div>
-  </div>
+          <% end %>
+      </div>
+  <% else %>
+  <% end %>
 <% else %>
-<div></div>
+  <div class="no-booking">
+  <br>
+    It seems you haven't booked any PISSR Toilet yet !
+  <div>
+  <br>
 <% end %>
+<p><%= link_to "Go back to find a toilet ", toilets_path, class: "btn btn-ghost" %></p>
+
