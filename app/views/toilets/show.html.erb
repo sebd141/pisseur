@@ -12,7 +12,7 @@
         <p><%=@toilet.description%></p>
         <p><%=@toilet.location%></p>
         <br>
-        <p>Average rating of this toilet: <strong><%= @toilet.reviews.average(:rating).to_f %></strong></p>
+        <p>Average rating for this toilet: <strong><%= @toilet.reviews.average(:rating).to_f %></strong></p>
         <p>
       </div>
       <h2 class="card-trip-pricing">€<%=@toilet.price%></h2>
@@ -22,6 +22,7 @@
         <%= image_tag("https://res.cloudinary.com/dlyi5kech/image/upload/v1653654146/Image_d_iOS_oqqiak.jpg", class: "card-trip-user avatar-bordered") %>
       <% end %>
       <div class="btn-test">
+        <%= link_to "Book a toilet", new_toilet_booking_path(@toilet), class: "form-actions btn btn-edit" %>
         <%= link_to "Edit toilet", edit_toilet_path(@toilet), class: "form-actions btn btn-edit" %>
         <%= link_to "Delete toilet", toilet_path(@toilet), method: :delete, class: "form-actions btn btn-delete", data: {confirm: "Delete this toilet ?" } %>
       </div>
