@@ -36,7 +36,7 @@
         <% if toilet.photo.attached? %>
           <%= cl_image_tag toilet.photo.key, height: 300, width: 400, crop: :fill %>
         <% else%>
-          <%= image_tag "toilette_3.jpeg", height: 300, width: 400, crop: :fill %>
+          <%= image_tag(image_path "toilette_3.jpeg", height: 300, width: 400, crop: :fill) %>
         <% end %>
 
         <div class="card-product-infos">
