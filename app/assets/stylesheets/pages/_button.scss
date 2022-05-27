@@ -116,3 +116,22 @@
   color: #f70303;
   border: 1px solid #f70303;
 }
+
+.btn-book {
+  margin-top: 5px;
+  color: #000dff;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  margin-bottom: 3%;
+  flex-direction: column;
+}
+
+.btn-book:hover {
+  color: #000dff;
+  border: 1px solid #000dff;
+}
